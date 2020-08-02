@@ -1,0 +1,96 @@
+[ 
+{
+    "title": "What is normalization",
+    "items": [ 
+      { "point": "Normalization",
+      "texts": [
+        "Structuring database tables for efficent storage and manipulation.",
+        "Ensures that the database is easy to modify as requirements change.",
+        "Reduces the storage of redundant inconsistant data"
+        ]}
+      ]
+},
+{
+    "title": "Example table",
+    "items": [ 
+      { "point": "Radio call log",
+      "texts": ["A table of radio contacts showing data about the contact.",
+        "Time, date, and information about the station is shown for each contact."]},
+      { "point": "Attribute",
+      "texts": ["A single value usually stored in a column of a table.",
+        "We call this an attribute as it describes the main idea of the table.",
+        "The frequency is an attribute of the contact."]},
+      { "point": "Primary key",
+      "texts": ["Unique identifier for items in a table.",
+        "In set thoery, a set is a collection of unique items.",
+        "A primary key is a unique attribute or group of attributes.",
+        "This ensures that the set contains unique items.",
+        "This allows us to use set operations to manipulate the table.",
+        "Manipulating tables using set thoery is known as relational algebra."]},
+      { "point": "Composite key",
+      "texts": ["A key could be made up of more than one attribute.",
+            "This is called a composite key."]}
+    ]
+  },
+  {
+      "title": "Why Normalize",
+      "items": [ 
+        { "point": "Reduce restructuring",
+        "texts": [ 
+          "A repeating group occurs when a group of attributes are repeated.",
+          "Often recognised by names like date1,date2,date3.",
+          "A repeating group could require the database structure to change.",
+          "Breaking the data into separate tables reduces duplication.",
+          "An entire table could be added without impact on the existing system." ]},
+        { "point": "Avoid Redundant data",
+        "texts": [ 
+          "Multiple copies of the same data could easily become inconsistent.",
+          "If data is repeated in many rows, It takes up extra space." ]},
+        { "point": "Avoid insert anomalies",
+        "texts": [ 
+          "By entering station data each time we could introduce inconsistancy.",
+          "Some attributes could be missing in some inserts."]},
+        { "point": "Avoid update anomalies",
+        "texts": [ 
+          "Updating redundant data could lead to inconsistancies.",
+          "We would need to find all occurences of a redundant attribute."]},
+        { "point": "Avoid delete anomalies",
+        "texts": [ 
+          "If we delete the last copy of some data it gets lost.",
+          "Deleting a contact deletes station data as well."]}
+      ]
+  },
+ {
+    "title": "Normal forms",
+    "items": [ 
+      { "point": "Remove repeating groups",
+      "texts": [
+        "Remove repeating groups and place them in a separate table.",
+        "Choose a primary key for the new table.",
+        "Connect the tables via foreign key.",
+        "A foreign key is a copy of the primary key of the related table."]},
+      { "point": "Remove attributes dependant on part of the primary key",
+      "texts": [
+        "This can occur when there is a composite primary key.",
+        "A dependant attribute is one that is likely to change when the primary key changes.",
+        "The operator name is usually dependant on the callsign." ]},
+      { "point": "Remove attributes dependant on another key",
+      "texts": [
+        "The band is dependent on the frequency.",
+        "Some could be calculated or looked up in another table."]}
+    ]
+  },
+  {
+    "title": "Revised tables",
+    "items": [ 
+      { "point": "Revised contact table",
+      "texts": [
+        "New opaque primary key",
+        "Foreign key to station table." ]},
+      { "point": "Revised station table",
+      "texts": [
+        "Primary key is callsign." ]}
+    ]
+  }
+]
+  

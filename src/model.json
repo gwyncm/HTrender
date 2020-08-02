@@ -1,0 +1,13 @@
+[ 
+    {
+        "title": "What is data modeling",
+        "items": [ 
+          { "point": "Data Modeling",
+          "texts": [
+            "Structuring database tables for efficent storage and manipulation.",
+            "Ensures that the database is easy to modify as requirements change.",
+            "Reduces the storage of redundant inconsistant data"
+            ]}
+          ]
+    }
+]
